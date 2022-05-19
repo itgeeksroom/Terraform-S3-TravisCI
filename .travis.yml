@@ -6,7 +6,7 @@ arch: arm64 # Architecture signifying a containerized version of Linux to boot f
 # Define language
 language: shell  # aka, bash on Linux
 
-# Only build PRs against master branch or pushes to master branch
+# Only build PRs against main branch or pushes to main branch
 branches:
   only:
     - main
@@ -57,8 +57,8 @@ jobs:
 
     - stage: terraform apply
 
-      # Terraform Apply: Only when pushing direct to master, or when PR merge into master
-      if: type IN (push) and branch = master
+      # Terraform Apply: Only when pushing direct to main, or when PR merge into main
+      if: type IN (push) and branch = main
 
       install:
         # Download and install terraform before each run
@@ -74,4 +74,4 @@ jobs:
         - terraform init $tf_init_cli_options
         - terraform apply $tf_apply_cli_options
 
-       # Welcome to travis ci. This is my first terraform CI :-) 
+       # Welcome to travis ci. This is my first terraform script :-) 
