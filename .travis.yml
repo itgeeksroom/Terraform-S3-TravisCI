@@ -9,7 +9,7 @@ language: shell  # aka, bash on Linux
 # Only build PRs against master branch or pushes to master branch
 branches:
   only:
-    - master
+    - main
 
 # Export global variables into shell
 env:
@@ -74,4 +74,4 @@ jobs:
         - terraform init $tf_init_cli_options
         - terraform apply $tf_apply_cli_options
 
-       # Welcome to travis ci
+       # Welcome to travis ci. This is my first terraform CI :-) 
