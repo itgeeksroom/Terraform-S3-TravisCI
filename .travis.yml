@@ -13,7 +13,6 @@ branches:
 
 # Export global variables into shell
 env:
-  global:
     # Setting the version of terraform - https://github.com/hashicorp/terraform/releases
     - tf_version=0.12.19
 
