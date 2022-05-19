@@ -52,7 +52,7 @@ jobs:
         - echo "Pull request detected, creating change plan"
 
         # Terraform init, validate, then create change plan. If any fail, fail validations
-        - terraform init "-input=false"
+        - terraform init -input=false
         - terraform validate $tf_validation_cli_options
         - terraform plan $tf_plan_cli_options
 
@@ -74,7 +74,7 @@ jobs:
         - echo $tf_init_cli_options
 
         # Terraform init and then apply changes to environment
-        - terraform init "-input=false"
+        - terraform init -input=false
         - terraform apply $tf_apply_cli_options
 
        # Welcome to travis ci. This is my first terraform script :-) 
