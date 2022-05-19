@@ -13,21 +13,7 @@ branches:
 
 # Export global variables into shell
 env:
-  global:
-    # Setting the version of terraform - https://github.com/hashicorp/terraform/releases
-    - tf_version=0.12.19
-
-    # Setting terraform init CLI options - https://www.terraform.io/docs/commands/init.html
-    - tf_init_cli_options=" -input=false"
-
-    # Set terraform validation CLI options - https://www.terraform.io/docs/commands/validate.html
-    - tf_validation_cli_options=""
-
-    # Set terraform plan CLI options - https://www.terraform.io/docs/commands/plan.html
-    - tf_plan_cli_options=" -lock=false -input=false"
-
-    # Set terraform apply CLI options - https://www.terraform.io/docs/commands/apply.html
-    - tf_apply_cli_options=" -auto-approve -input=false"
+  - tf_version=1.1.9 tf_init_cli_options="-input=false" tf_validation_cli_options="" tf_plan_cli_options="-lock=false -input=false" tf_apply_cli_options="-auto-approve -input=false"
 
 jobs:
   include:
