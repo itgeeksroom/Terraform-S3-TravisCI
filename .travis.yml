@@ -11,10 +11,6 @@ branches:
   only:
     - main
 
-# Export global variables into shell ubuntu
-env:
-  - tf_version=1.1.9 tf_init_cli_options="-input=false" tf_validation_cli_options="" tf_plan_cli_options="-lock=false -input=false" tf_apply_cli_options="-auto-approve -input=false"
-
 jobs:
   include:
     - stage: terraform plan
@@ -38,9 +34,9 @@ jobs:
         - echo "Pull request detected, creating change plan"
 
         # Terraform init, validate, then create change plan. If any fail, fail validation
-        - terraform init $tf_init_cli_options
-        - terraform validate $tf_validation_cli_options
-        - terraform plan $tf_plan_cli_options
+        - terraform init -input=false
+        - terraform validate
+        - terraform plan lock=false -input=false
 
     - stage: terraform apply
 
@@ -59,7 +55,7 @@ jobs:
         - echo "Merge detected, executing changes"
 
         # Terraform init and then apply changes to environment
-        - terraform init $tf_init_cli_options
-        - terraform apply $tf_apply_cli_options
+        - terraform init -input=false
+        - terraform apply -auto-approve -input=false
 
        # Welcome to travis ci. This is my first terraform script :-) 
