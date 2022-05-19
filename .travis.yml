@@ -73,3 +73,5 @@ jobs:
         # Terraform init and then apply changes to environment
         - terraform init $tf_init_cli_options
         - terraform apply $tf_apply_cli_options
+
+       # Welcome to travis ci
